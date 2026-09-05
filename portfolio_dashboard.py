@@ -961,29 +961,14 @@ with tab6:
     st.markdown("<p style='font-size:14px; font-weight:700; color:#0f172a; margin-bottom:2px;'>📋 Capital Allocation Line — 101 Portfolio Combinations</p>", unsafe_allow_html=True)
     st.caption("Shifting 1% at a time: 100% Risk-Free → 100% Optimal Risky Portfolio")
 
-    # Sharpe explanation
-    st.markdown(f"""
-    <div style='background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px;
-                padding:14px 18px; margin-bottom:16px;'>
-        <p style='font-size:13px; font-weight:700; color:{C["blue"]}; margin:0 0 6px;'>
-            💡 Why is Sharpe Ratio = {opt_sh:.4f} for ALL 101 combinations?</p>
-        <p style='font-size:13px; color:{C["body"]}; margin:0; line-height:1.6;'>
-            For any CAL portfolio with weight <b>w</b> in the risky portfolio:<br>
-            <b>Sharpe = [Rf + w·(E(RT)−Rf) − Rf] / (w·σT) = w·(E(RT)−Rf) / (w·σT) = (E(RT)−Rf) / σT</b><br>
-            The weight <b>w cancels out</b> — every point on the CAL has the same Sharpe ratio
-            as the tangency portfolio. You just scale risk up or down, but reward-per-unit-risk stays constant.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
     w_arr = np.linspace(0, 1, 101)
     r_arr = rf_rate + w_arr*(opt_ret - rf_rate)
     v_arr = w_arr * opt_vol
-    s_arr = np.where(v_arr > 0, (r_arr - rf_rate)/v_arr, 0.0)
 
     fig_lines = make_subplots(
-        rows=1, cols=3,
-        subplot_titles=["Expected Return", "Volatility", "Sharpe Ratio (flat = same for all)"]
+        rows=1, cols=2,
+        subplot_titles=["Expected Return vs Risky Weight",
+                        "Volatility vs Risky Weight"]
     )
 
     fig_lines.add_trace(go.Scatter(
@@ -994,17 +979,10 @@ with tab6:
 
     fig_lines.add_trace(go.Scatter(
         x=w_arr*100, y=v_arr*100, mode="lines",
-        line=dict(color=C["amber"], width=2.5), name="Vol",
+        line=dict(color=C["amber"], width=2.5), name="Volatility",
         hovertemplate="Risky Wt: %{x:.0f}%<br>Vol: %{y:.2f}%<extra></extra>"
     ), 1, 2)
 
-    fig_lines.add_trace(go.Scatter(
-        x=w_arr*100, y=s_arr, mode="lines",
-        line=dict(color=C["blue"], width=2.5), name="Sharpe",
-        hovertemplate="Risky Wt: %{x:.0f}%<br>Sharpe: %{y:.4f}<extra></extra>"
-    ), 1, 3)
-
-    # Apply theme to subplots — NO spreading
     fig_lines.update_layout(
         paper_bgcolor=C["bg"],
         plot_bgcolor=C["bg"],
@@ -1029,15 +1007,6 @@ with tab6:
         ann.font.size  = 12
 
     st.plotly_chart(fig_lines, use_container_width=True)
-
-    # Note about flat Sharpe
-    st.markdown(f"""
-    <div style='background:#fefce8; border:1px solid #fef08a; border-radius:10px;
-                padding:10px 16px; margin-bottom:14px; font-size:13px; color:{C["body"]};'>
-        📌 The <b>Sharpe Ratio chart (right)</b> shows a flat line at <b>{opt_sh:.4f}</b>
-        — confirming every CAL portfolio has the same reward-per-unit-risk.
-    </div>
-    """, unsafe_allow_html=True)
 
     # Table
     cal_rows = []
