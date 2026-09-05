@@ -20,11 +20,10 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-#  CSS  — minimal, targeted, no wildcards
+#  CSS
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
-/* ── Hide only the top bar chrome (NOT sidebar toggle) ── */
 #MainMenu                                 { visibility: hidden; }
 header[data-testid="stHeader"]            { background: transparent !important;
                                             height: 0px !important;
@@ -32,17 +31,11 @@ header[data-testid="stHeader"]            { background: transparent !important;
 [data-testid="stToolbar"]                 { display: none !important; }
 .stDeployButton                           { display: none !important; }
 footer                                    { display: none !important; }
-
-/* ── Keep sidebar toggle visible ── */
 [data-testid="stSidebarCollapsedControl"] { display: flex !important;
                                             visibility: visible !important; }
-
-/* ── Page ── */
 .stApp                        { background: #f1f5f9; }
 .block-container              { padding-top: 1.2rem !important;
                                 padding-bottom: 1rem !important; }
-
-/* ── Sidebar ── */
 [data-testid="stSidebar"]            { background: #1e293b !important; }
 [data-testid="stSidebar"] label      { color: #cbd5e1 !important; }
 [data-testid="stSidebar"] .stCaption { color: #94a3b8 !important; }
@@ -51,107 +44,93 @@ footer                                    { display: none !important; }
 [data-testid="stSidebar"] h1,
 [data-testid="stSidebar"] h2,
 [data-testid="stSidebar"] h3         { color: #f1f5f9 !important; }
-[data-testid="stSidebar"] .stTextArea textarea  {
+[data-testid="stSidebar"] .stTextArea textarea {
     background: #0f172a !important; color: #e2e8f0 !important;
     border: 1px solid #475569 !important; border-radius: 8px !important; }
-[data-testid="stSidebar"] .stTextInput input    {
+[data-testid="stSidebar"] .stTextInput input {
     background: #0f172a !important; color: #e2e8f0 !important;
     border: 1px solid #475569 !important; border-radius: 8px !important; }
-[data-testid="stSidebar"] .stDateInput input    {
+[data-testid="stSidebar"] .stDateInput input {
     background: #0f172a !important; color: #e2e8f0 !important;
     border: 1px solid #475569 !important; }
 [data-testid="stSidebar"] [data-testid="stSlider"] div { color: #cbd5e1 !important; }
+[data-testid="stSidebar"] .stSelectbox div { color: #e2e8f0 !important; }
 
-/* ── Metric cards ── */
-[data-testid="stMetric"]        { background: #ffffff; border: 1px solid #e2e8f0;
-                                   border-radius: 12px; padding: 14px !important;
-                                   box-shadow: 0 1px 3px rgba(0,0,0,.07); }
-[data-testid="stMetricLabel"]   { color: #64748b !important; font-size: 12px !important;
-                                   font-weight: 600 !important; }
-[data-testid="stMetricValue"]   { color: #0f172a !important; font-size: 22px !important;
-                                   font-weight: 800 !important; }
-[data-testid="stMetricDelta"]   { font-size: 12px !important; }
+[data-testid="stMetric"]      { background: #ffffff; border: 1px solid #e2e8f0;
+                                 border-radius: 12px; padding: 14px !important;
+                                 box-shadow: 0 1px 3px rgba(0,0,0,.07); }
+[data-testid="stMetricLabel"] { color: #64748b !important; font-size: 12px !important;
+                                 font-weight: 600 !important; }
+[data-testid="stMetricValue"] { color: #0f172a !important; font-size: 22px !important;
+                                 font-weight: 800 !important; }
+[data-testid="stMetricDelta"] { font-size: 12px !important; }
 
-/* ── Tabs ── */
-.stTabs [data-baseweb="tab-list"]  { background: #ffffff; border-radius: 10px;
-                                      padding: 4px; gap: 3px;
-                                      border: 1px solid #e2e8f0;
-                                      box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-.stTabs [data-baseweb="tab"]       { border-radius: 7px; color: #64748b !important;
-                                      font-weight: 600; font-size: 13px;
-                                      padding: 7px 14px; border: none !important; }
-.stTabs [aria-selected="true"]     { background: #2563eb !important;
-                                      color: #ffffff !important; }
-
-/* ── Main content text ── */
+.stTabs [data-baseweb="tab-list"] { background: #ffffff; border-radius: 10px;
+                                     padding: 4px; gap: 3px;
+                                     border: 1px solid #e2e8f0;
+                                     box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.stTabs [data-baseweb="tab"]      { border-radius: 7px; color: #64748b !important;
+                                     font-weight: 600; font-size: 13px;
+                                     padding: 7px 14px; border: none !important; }
+.stTabs [aria-selected="true"]    { background: #2563eb !important;
+                                     color: #ffffff !important; }
 h1,h2,h3,h4 { color: #0f172a !important; }
 p           { color: #334155; }
-
-/* ── Dataframe ── */
-[data-testid="stDataFrame"]   { border-radius: 10px; border: 1px solid #e2e8f0;
-                                  box-shadow: 0 1px 3px rgba(0,0,0,.05); }
-
-/* ── Expander ── */
-[data-testid="stExpander"]    { background: #ffffff; border: 1px solid #e2e8f0;
-                                  border-radius: 10px; }
-
-/* ── Divider ── */
-hr  { border-color: #e2e8f0 !important; margin: 0.8rem 0 !important; }
-
-/* ── Scrollbar ── */
+[data-testid="stDataFrame"] { border-radius: 10px; border: 1px solid #e2e8f0;
+                               box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+[data-testid="stExpander"]  { background: #ffffff; border: 1px solid #e2e8f0;
+                               border-radius: 10px; }
+hr { border-color: #e2e8f0 !important; margin: 0.8rem 0 !important; }
 ::-webkit-scrollbar        { width:5px; height:5px; }
 ::-webkit-scrollbar-track  { background:#f1f5f9; }
 ::-webkit-scrollbar-thumb  { background:#cbd5e1; border-radius:3px; }
-
-/* ── Button ── */
-.stButton>button  { border-radius: 9px !important; font-weight: 700 !important;
-                    font-size: 14px !important; height: 44px; }
+.stButton>button { border-radius: 9px !important; font-weight: 700 !important;
+                   font-size: 14px !important; height: 44px; }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ─────────────────────────────────────────────
 #  THEME TOKENS
 # ─────────────────────────────────────────────
 C = {
-    "bg"     : "#ffffff",
-    "page"   : "#f1f5f9",
-    "border" : "#e2e8f0",
-    "head"   : "#0f172a",
-    "body"   : "#334155",
-    "muted"  : "#64748b",
-    "blue"   : "#2563eb",
-    "green"  : "#16a34a",
-    "red"    : "#dc2626",
-    "amber"  : "#d97706",
-    "purple" : "#7c3aed",
+    "bg"    : "#ffffff", "page"  : "#f1f5f9",
+    "border": "#e2e8f0", "head"  : "#0f172a",
+    "body"  : "#334155", "muted" : "#64748b",
+    "blue"  : "#2563eb", "green" : "#16a34a",
+    "red"   : "#dc2626", "amber" : "#d97706",
+    "purple": "#7c3aed",
 }
 PALETTE = ["#2563eb","#16a34a","#d97706","#dc2626",
            "#7c3aed","#0891b2","#ea580c","#65a30d"]
 
+# ─────────────────────────────────────────────
+#  MARKET INDEX MAP  — friendly name → Yahoo ticker
+# ─────────────────────────────────────────────
+MARKET_MAP = {
+    "Nifty 50"          : "^NSEI",
+    "Nifty Bank"        : "^NSEBANK",
+    "Nifty IT"          : "^CNXIT",
+    "Nifty Midcap 100"  : "^NSEMDCP100",
+    "BSE Sensex"        : "^BSESN",
+    "S&P 500 (US)"      : "^GSPC",
+    "Nasdaq 100 (US)"   : "^NDX",
+    "Dow Jones (US)"    : "^DJI",
+}
 
 # ─────────────────────────────────────────────
-#  CHART HELPERS  — no spreading to avoid conflicts
+#  CHART HELPERS
 # ─────────────────────────────────────────────
 def apply_white_theme(fig, height=500, margin=None, hovermode="closest"):
-    """Apply white theme to any figure without dict-spreading."""
     m = margin or dict(t=30, b=30, l=10, r=10)
     fig.update_layout(
-        paper_bgcolor=C["bg"],
-        plot_bgcolor=C["bg"],
-        height=height,
-        margin=m,
-        hovermode=hovermode,
+        paper_bgcolor=C["bg"], plot_bgcolor=C["bg"],
+        height=height, margin=m, hovermode=hovermode,
         font=dict(color=C["body"], family="Inter, sans-serif"),
-        legend=dict(
-            bgcolor=C["bg"], bordercolor=C["border"],
-            borderwidth=1, font=dict(size=11, color=C["body"])
-        )
+        legend=dict(bgcolor=C["bg"], bordercolor=C["border"],
+                    borderwidth=1, font=dict(size=11, color=C["body"]))
     )
 
-
 def style_axes(fig, xkw=None, ykw=None):
-    """Style x and y axes with white-theme defaults."""
     xd = dict(gridcolor=C["border"], zeroline=False,
                tickfont=dict(size=11, color=C["muted"]),
                linecolor=C["border"], showline=True,
@@ -160,27 +139,56 @@ def style_axes(fig, xkw=None, ykw=None):
                tickfont=dict(size=11, color=C["muted"]),
                linecolor=C["border"], showline=True,
                title_font=dict(color=C["body"], size=12))
-    if xkw:
-        xd.update(xkw)
-    if ykw:
-        yd.update(ykw)
+    if xkw: xd.update(xkw)
+    if ykw: yd.update(ykw)
     fig.update_xaxes(**xd)
     fig.update_yaxes(**yd)
 
+# ─────────────────────────────────────────────
+#  TICKER AUTO-RESOLVER
+#  User types  TCS / INFY / AAPL  (no suffix needed)
+#  We try:  TCS.NS  →  TCS.BO  →  TCS  (US / crypto)
+# ─────────────────────────────────────────────
+@st.cache_data(show_spinner=False, ttl=3600)
+def resolve_ticker(raw: str) -> str | None:
+    """Return the first valid Yahoo Finance ticker for a raw symbol."""
+    raw = raw.strip().upper()
+    # If user already added a suffix, honour it directly
+    if "." in raw:
+        try:
+            d = yf.download(raw, period="5d", progress=False, auto_adjust=True)
+            if not d.empty:
+                return raw
+        except Exception:
+            pass
+        return None
+
+    # Otherwise try suffixes in order
+    for suffix in [".NS", ".BO", ""]:
+        candidate = raw + suffix
+        try:
+            d = yf.download(candidate, period="5d", progress=False, auto_adjust=True)
+            if not d.empty:
+                return candidate
+        except Exception:
+            continue
+    return None
+
+
+def short(t: str) -> str:
+    """Strip exchange suffix for display."""
+    return t.replace(".NS","").replace(".BO","").replace(".BSE","")
 
 # ─────────────────────────────────────────────
 #  FINANCE FUNCTIONS
 # ─────────────────────────────────────────────
-def short(t):
-    return t.replace(".NS","").replace(".BO","").replace(".BSE","")
-
-
 @st.cache_data(show_spinner=False)
-def fetch_data(tickers, mkt, start, end):
-    raw = yf.download(list(tickers)+[mkt], start=start, end=end,
-                      auto_adjust=True, progress=False)["Close"]
+def fetch_data(resolved_tickers, mkt, start, end):
+    all_t = list(resolved_tickers) + [mkt]
+    raw   = yf.download(all_t, start=start, end=end,
+                        auto_adjust=True, progress=False)["Close"]
     raw.dropna(how="all", inplace=True)
-    avail = [t for t in tickers if t in raw.columns]
+    avail = [t for t in resolved_tickers if t in raw.columns]
     return raw[avail].dropna(), raw[mkt].dropna(), avail
 
 
@@ -200,22 +208,22 @@ def port_perf(w, mu, sig, rf):
 
 
 def optimize_portfolio(mu, sig, rf):
-    n   = len(mu)
+    n = len(mu)
     res = sco.minimize(
         lambda w: -port_perf(w, mu, sig, rf)[2],
         n*[1/n], method="SLSQP",
-        bounds=[(0, 1)]*n,
+        bounds=[(0,1)]*n,
         constraints={"type":"eq","fun":lambda x: np.sum(x)-1}
     )
     return res.x
 
 
 def find_gmvp(mu, sig):
-    n   = len(mu)
+    n = len(mu)
     res = sco.minimize(
         lambda w: float(np.sqrt(np.dot(w.T, np.dot(sig, w)))),
         n*[1/n], method="SLSQP",
-        bounds=[(0, 1)]*n,
+        bounds=[(0,1)]*n,
         constraints={"type":"eq","fun":lambda x: np.sum(x)-1}
     )
     if res.success:
@@ -224,26 +232,26 @@ def find_gmvp(mu, sig):
 
 
 def min_var_vol(mu, sig, target):
-    n   = len(mu)
+    n = len(mu)
     res = sco.minimize(
         lambda w: float(np.sqrt(np.dot(w.T, np.dot(sig, w)))),
         n*[1/n], method="SLSQP",
-        bounds=[(0, 1)]*n,
+        bounds=[(0,1)]*n,
         constraints=[
             {"type":"eq","fun":lambda x: np.sum(x)-1},
-            {"type":"eq","fun":lambda x, t=target: np.dot(x, mu)-t}
+            {"type":"eq","fun":lambda x, t=target: np.dot(x,mu)-t}
         ]
     )
     return float(res.fun) if res.success else None
 
 
 def get_betas(returns, mkt_ret, mkt_var):
-    return {c: float(np.cov(returns[c], mkt_ret)[0,1] / mkt_var)
+    return {c: float(np.cov(returns[c], mkt_ret)[0,1]/mkt_var)
             for c in returns.columns}
 
 
 def get_port_beta(port_daily, mkt_ret):
-    return float(np.cov(port_daily, mkt_ret)[0,1] / np.var(mkt_ret))
+    return float(np.cov(port_daily, mkt_ret)[0,1]/np.var(mkt_ret))
 
 
 # ─────────────────────────────────────────────
@@ -255,38 +263,53 @@ with st.sidebar:
         <div style='font-size:38px; line-height:1;'>📊</div>
         <div style='font-size:18px; font-weight:800; color:#f8fafc; margin-top:8px;'>
             Portfolio Optimizer</div>
-        <div style='font-size:11px; color:#94a3b8; margin-top:4px; line-height:1.4;'>
+        <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>
             SLSQP · CAPM · MPT</div>
     </div>
     <hr style='border-color:#334155; margin:0 0 14px 0;'>
     """, unsafe_allow_html=True)
 
+    # ── Date Range ──
     st.markdown("<p style='color:#93c5fd; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px;'>📅 DATE RANGE</p>", unsafe_allow_html=True)
     c1, c2 = st.columns(2)
     with c1:
-        start_date = st.date_input("Start", value=date(2020,1,1),
+        start_date = st.date_input("S", value=date(2020,1,1),
                                    max_value=date.today(), label_visibility="collapsed")
         st.caption("Start date")
     with c2:
-        end_date = st.date_input("End", value=date.today(),
+        end_date = st.date_input("E", value=date.today(),
                                  max_value=date.today(), label_visibility="collapsed")
         st.caption("End date")
 
     st.markdown("<hr style='border-color:#334155; margin:10px 0;'>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#93c5fd; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px;'>📈 STOCK TICKERS</p>", unsafe_allow_html=True)
-    st.caption("NSE → TCS.NS  |  US → AAPL  |  One per line")
 
-    ticker_input = st.text_area("Tickers", label_visibility="collapsed", height=200,
-        value="TCS.NS\nINFY.NS\nHDFCBANK.NS\nICICIBANK.NS\nRELIANCE.NS\n"
-              "ITC.NS\nSUNPHARMA.NS\nBHARTIARTL.NS\nM&M.NS\nGOLDBEES.NS")
-    tickers = [t.strip().upper() for t in ticker_input.strip().split("\n") if t.strip()]
+    # ── Stock Tickers ──
+    st.markdown("<p style='color:#93c5fd; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px;'>📈 STOCK TICKERS</p>", unsafe_allow_html=True)
+    st.caption("Just type the symbol — TCS, INFY, AAPL. One per line. No .NS needed.")
+
+    ticker_input = st.text_area("Tickers", label_visibility="collapsed", height=210,
+        value="TCS\nINFY\nHDFCBANK\nICICIBANK\nRELIANCE\n"
+              "ITC\nSUNPHARMA\nBHARTIARTL\nM&M\nGOLDBEES")
+    raw_tickers = [t.strip().upper() for t in ticker_input.strip().split("\n") if t.strip()]
 
     st.markdown("<hr style='border-color:#334155; margin:10px 0;'>", unsafe_allow_html=True)
-    st.markdown("<p style='color:#93c5fd; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px;'>🏦 MARKET SETTINGS</p>", unsafe_allow_html=True)
-    market_ticker = st.text_input("Market Index", value="^NSEI",
-                                  help="Nifty 50 = ^NSEI  |  S&P 500 = ^GSPC",
-                                  label_visibility="collapsed")
-    st.caption("Market index  (^NSEI / ^GSPC)")
+
+    # ── Market Index ── friendly dropdown
+    st.markdown("<p style='color:#93c5fd; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px;'>🏦 MARKET INDEX</p>", unsafe_allow_html=True)
+
+    market_choice = st.selectbox(
+        "Market Index",
+        options=list(MARKET_MAP.keys()),
+        index=0,          # default: Nifty 50
+        label_visibility="collapsed"
+    )
+    market_ticker = MARKET_MAP[market_choice]
+    st.caption(f"Yahoo Finance ticker: `{market_ticker}`")
+
+    st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
+
+    # ── Risk-Free Rate ──
+    st.markdown("<p style='color:#93c5fd; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px;'>💰 RISK-FREE RATE</p>", unsafe_allow_html=True)
     rf_rate = st.slider("Risk-Free Rate (%)", 0.0, 15.0, 6.5, 0.1) / 100
 
     st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
@@ -295,8 +318,11 @@ with st.sidebar:
     st.markdown("""
     <div style='margin-top:12px; background:#0f172a; border:1px solid #334155;
                 border-radius:10px; padding:10px 12px; font-size:11px; color:#94a3b8;'>
-        <b style='color:#60a5fa;'>💡 Tip:</b> 3–20 stocks work best.<br>
-        More stocks = slower optimization.
+        <b style='color:#60a5fa;'>💡 Tips:</b><br>
+        • Just enter symbols: <b>TCS</b>, <b>AAPL</b><br>
+        • NSE stocks auto-detected (.NS)<br>
+        • US stocks also supported<br>
+        • 3–20 stocks work best
     </div>
     """, unsafe_allow_html=True)
 
@@ -304,7 +330,7 @@ with st.sidebar:
 # ─────────────────────────────────────────────
 #  MAIN HEADER
 # ─────────────────────────────────────────────
-st.markdown(f"""
+st.markdown("""
 <div style='background:#ffffff; border:1px solid #e2e8f0; border-radius:14px;
             padding:16px 22px; margin-bottom:18px;
             box-shadow:0 1px 4px rgba(0,0,0,.06);'>
@@ -321,7 +347,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-
 # ─────────────────────────────────────────────
 #  LANDING
 # ─────────────────────────────────────────────
@@ -333,9 +358,10 @@ if not run_btn:
         <div style='font-size:56px; margin-bottom:12px;'>🏦</div>
         <div style='font-size:20px; font-weight:800; color:#0f172a; margin-bottom:8px;'>
             Configure your portfolio on the left panel</div>
-        <div style='color:#64748b; font-size:13px; max-width:440px; margin:0 auto 24px;'>
-            Enter tickers · Set date range · Choose risk-free rate ·
-            Click <b style='color:#2563eb;'>Run Optimization</b></div>
+        <div style='color:#64748b; font-size:13px; max-width:480px; margin:0 auto 24px;'>
+            Type ticker symbols (no suffix needed) · Select market index ·
+            Set date range · Click <b style='color:#2563eb;'>Run Optimization</b>
+        </div>
         <div style='display:flex; justify-content:center; gap:10px; flex-wrap:wrap;'>
             <span style='background:#eff6ff; color:#1d4ed8; padding:6px 14px;
                          border-radius:999px; font-size:12px; font-weight:700;'>
@@ -359,37 +385,70 @@ if not run_btn:
 
 
 # ─────────────────────────────────────────────
+#  RESOLVE TICKERS  (auto-detect exchange suffix)
+# ─────────────────────────────────────────────
+with st.spinner("🔍 Resolving ticker symbols..."):
+    resolve_progress = st.empty()
+    resolved_map   = {}   # raw → resolved ticker (e.g. TCS → TCS.NS)
+    failed_tickers = []
+
+    for raw in raw_tickers:
+        resolved = resolve_ticker(raw)
+        if resolved:
+            resolved_map[raw] = resolved
+        else:
+            failed_tickers.append(raw)
+
+    tickers = list(resolved_map.values())   # resolved tickers for download
+
+if failed_tickers:
+    st.warning(f"⚠️ Could not find: **{', '.join(failed_tickers)}** — skipped. "
+               f"Check spelling or try adding suffix manually (e.g. TCS.NS).")
+
+if len(tickers) < 2:
+    st.error("❌ Need at least 2 valid tickers. Please check your inputs.")
+    st.stop()
+
+# Show which tickers were resolved
+with st.expander(f"✅ {len(tickers)} tickers resolved — click to see mapping", expanded=False):
+    res_df = pd.DataFrame([
+        {"You entered": raw, "Resolved to": resolved_map[raw],
+         "Exchange": "NSE" if resolved_map[raw].endswith(".NS")
+                    else "BSE" if resolved_map[raw].endswith(".BO")
+                    else "US / Other"}
+        for raw in resolved_map
+    ])
+    st.dataframe(res_df, use_container_width=True, hide_index=True)
+
+
+# ─────────────────────────────────────────────
 #  FETCH & COMPUTE
 # ─────────────────────────────────────────────
-with st.spinner("⏳ Fetching data and running SLSQP optimization..."):
+with st.spinner(f"⏳ Fetching data from {start_date} to {end_date} and running SLSQP..."):
     try:
         stock_data, market_data, available = fetch_data(
             tuple(tickers), market_ticker, str(start_date), str(end_date))
 
         if len(available) < 2:
-            st.error("❌ Need at least 2 valid tickers. Check your inputs.")
+            st.error("❌ Not enough data returned. Try a different date range.")
             st.stop()
 
         (returns, mkt_ret, mean_ret,
          cov_mat, corr_mat, mkt_annual, mkt_var) = compute_stats(stock_data, market_data)
 
-        opt_w                     = optimize_portfolio(mean_ret, cov_mat, rf_rate)
-        opt_ret, opt_vol, opt_sh  = port_perf(opt_w, mean_ret, cov_mat, rf_rate)
-        gmvp_ret, gmvp_vol        = find_gmvp(mean_ret, cov_mat)
+        opt_w                    = optimize_portfolio(mean_ret, cov_mat, rf_rate)
+        opt_ret, opt_vol, opt_sh = port_perf(opt_w, mean_ret, cov_mat, rf_rate)
+        gmvp_ret, gmvp_vol       = find_gmvp(mean_ret, cov_mat)
 
-        port_daily  = returns.dot(opt_w)
-        port_beta   = get_port_beta(port_daily, mkt_ret)
-        capm_ret    = rf_rate + port_beta * (mkt_annual - rf_rate)
-        alpha       = opt_ret - capm_ret
-        betas       = get_betas(returns, mkt_ret, mkt_var)
+        port_daily = returns.dot(opt_w)
+        port_beta  = get_port_beta(port_daily, mkt_ret)
+        capm_ret   = rf_rate + port_beta*(mkt_annual - rf_rate)
+        alpha      = opt_ret - capm_ret
+        betas      = get_betas(returns, mkt_ret, mkt_var)
 
     except Exception as e:
         st.error(f"❌ Error: {e}")
         st.stop()
-
-skipped = [t for t in tickers if t not in available]
-if skipped:
-    st.warning(f"⚠️ Could not fetch: **{', '.join(skipped)}** — excluded.")
 
 
 # ─────────────────────────────────────────────
@@ -484,9 +543,11 @@ with tab1:
         apply_white_theme(fig_pie, height=280, margin=dict(t=10,b=10,l=10,r=10))
         fig_pie.update_layout(
             showlegend=False,
-            annotations=[dict(text=f"<b>{opt_sh:.2f}</b><br><span style='font-size:11px'>Sharpe</span>",
-                              x=0.5, y=0.5, showarrow=False,
-                              font=dict(size=18, color=C["head"]))]
+            annotations=[dict(
+                text=f"<b>{opt_sh:.2f}</b><br><span style='font-size:11px'>Sharpe</span>",
+                x=0.5, y=0.5, showarrow=False,
+                font=dict(size=18, color=C["head"])
+            )]
         )
         st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -496,30 +557,18 @@ with tab1:
             <p style='color:#64748b; font-size:10px; font-weight:800;
                       letter-spacing:1.5px; margin:0 0 12px 0;'>PORTFOLIO SUMMARY</p>
             <div style='display:grid; grid-template-columns:1fr 1fr; gap:12px;'>
-                <div>
-                    <div style='color:#64748b; font-size:11px;'>Annual Return</div>
-                    <div style='color:#16a34a; font-size:20px; font-weight:800;'>{opt_ret:.2%}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:11px;'>Volatility</div>
-                    <div style='color:#d97706; font-size:20px; font-weight:800;'>{opt_vol:.2%}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:11px;'>Sharpe Ratio</div>
-                    <div style='color:#2563eb; font-size:20px; font-weight:800;'>{opt_sh:.4f}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:11px;'>Beta</div>
-                    <div style='color:#7c3aed; font-size:20px; font-weight:800;'>{port_beta:.4f}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:11px;'>CAPM Return</div>
-                    <div style='color:#dc2626; font-size:20px; font-weight:800;'>{capm_ret:.2%}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:11px;'>Jensen's Alpha</div>
-                    <div style='color:{"#16a34a" if alpha>=0 else "#dc2626"}; font-size:20px; font-weight:800;'>{alpha:+.2%}</div>
-                </div>
+                <div><div style='color:#64748b; font-size:11px;'>Annual Return</div>
+                     <div style='color:#16a34a; font-size:20px; font-weight:800;'>{opt_ret:.2%}</div></div>
+                <div><div style='color:#64748b; font-size:11px;'>Volatility</div>
+                     <div style='color:#d97706; font-size:20px; font-weight:800;'>{opt_vol:.2%}</div></div>
+                <div><div style='color:#64748b; font-size:11px;'>Sharpe Ratio</div>
+                     <div style='color:#2563eb; font-size:20px; font-weight:800;'>{opt_sh:.4f}</div></div>
+                <div><div style='color:#64748b; font-size:11px;'>Beta</div>
+                     <div style='color:#7c3aed; font-size:20px; font-weight:800;'>{port_beta:.4f}</div></div>
+                <div><div style='color:#64748b; font-size:11px;'>CAPM Return</div>
+                     <div style='color:#dc2626; font-size:20px; font-weight:800;'>{capm_ret:.2%}</div></div>
+                <div><div style='color:#64748b; font-size:11px;'>Jensen's Alpha</div>
+                     <div style='color:{"#16a34a" if alpha>=0 else "#dc2626"}; font-size:20px; font-weight:800;'>{alpha:+.2%}</div></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -544,7 +593,6 @@ with tab2:
         sim_v = np.array(sim_v)
         sim_s = np.array(sim_s)
 
-        # Efficient frontier — UPPER portion only (GMVP → max return)
         ef_start = gmvp_ret if gmvp_ret is not None else float(mean_ret.min())
         ef_end   = float(mean_ret.max())
         ef_v, ef_r = [], []
@@ -553,17 +601,14 @@ with tab2:
             if v is not None:
                 ef_v.append(v); ef_r.append(tr)
 
-    # CAL — from Rf (vol=0) to slightly past optimal portfolio
     cal_max = opt_vol * 1.55
     cal_x   = np.linspace(0, cal_max, 100)
     cal_y   = rf_rate + opt_sh * cal_x
 
     fig_cal = go.Figure()
 
-    # 1. Monte Carlo scatter
     fig_cal.add_trace(go.Scatter(
-        x=sim_v*100, y=sim_r*100,
-        mode="markers",
+        x=sim_v*100, y=sim_r*100, mode="markers",
         marker=dict(
             color=sim_s,
             colorscale=[[0,"#bfdbfe"],[0.5,"#3b82f6"],[1,"#1e3a8a"]],
@@ -573,84 +618,69 @@ with tab2:
                 tickfont=dict(color=C["body"], size=10),
                 x=1.01, thickness=12, len=0.65,
                 bgcolor=C["bg"], bordercolor=C["border"]
-            ),
-            showscale=True
+            ), showscale=True
         ),
         name="Random Portfolios",
         hovertemplate="Vol: %{x:.2f}%<br>Return: %{y:.2f}%<extra>Random Portfolio</extra>"
     ))
 
-    # 2. Efficient Frontier (upper only)
     if len(ef_v) > 3:
         fig_cal.add_trace(go.Scatter(
-            x=[v*100 for v in ef_v],
-            y=[r*100 for r in ef_r],
-            mode="lines",
-            line=dict(color=C["amber"], width=3.5),
+            x=[v*100 for v in ef_v], y=[r*100 for r in ef_r],
+            mode="lines", line=dict(color=C["amber"], width=3.5),
             name="Efficient Frontier",
             hovertemplate="Vol: %{x:.2f}%<br>Return: %{y:.2f}%<extra>Efficient Frontier</extra>"
         ))
 
-    # 3. GMVP
     if gmvp_ret and gmvp_vol:
         fig_cal.add_trace(go.Scatter(
-            x=[gmvp_vol*100], y=[gmvp_ret*100],
-            mode="markers+text",
+            x=[gmvp_vol*100], y=[gmvp_ret*100], mode="markers+text",
             marker=dict(color=C["amber"], size=11, symbol="diamond",
                         line=dict(color="white", width=2)),
             text=["GMVP"], textposition="bottom right",
             textfont=dict(color=C["amber"], size=11),
             name=f"GMVP ({gmvp_ret:.1%})",
-            hovertemplate=(f"<b>Global Min-Variance Portfolio</b><br>"
-                           f"Return: {gmvp_ret:.2%}<br>Vol: {gmvp_vol:.2%}<extra></extra>")
+            hovertemplate=(f"<b>GMVP</b><br>Return: {gmvp_ret:.2%}<br>"
+                           f"Vol: {gmvp_vol:.2%}<extra></extra>")
         ))
 
-    # 4. CAL line
     fig_cal.add_trace(go.Scatter(
-        x=cal_x*100, y=cal_y*100,
-        mode="lines",
+        x=cal_x*100, y=cal_y*100, mode="lines",
         line=dict(color=C["blue"], width=2.5, dash="dash"),
-        name=f"CAL (Sharpe = {opt_sh:.2f})",
+        name=f"CAL (Sharpe={opt_sh:.2f})",
         hovertemplate="Vol: %{x:.2f}%<br>Return: %{y:.2f}%<extra>CAL</extra>"
     ))
 
-    # 5. Risk-free rate — at vol=0
     fig_cal.add_trace(go.Scatter(
-        x=[0], y=[rf_rate*100],
-        mode="markers+text",
+        x=[0], y=[rf_rate*100], mode="markers+text",
         marker=dict(color=C["blue"], size=10, symbol="circle",
                     line=dict(color="white", width=2)),
         text=[f"Rf={rf_rate:.1%}"], textposition="top right",
         textfont=dict(color=C["blue"], size=11),
-        name=f"Risk-Free Rate ({rf_rate:.1%})",
-        hovertemplate=f"Risk-Free Rate: {rf_rate:.2%}<extra></extra>"
+        name=f"Risk-Free ({rf_rate:.1%})",
+        hovertemplate=f"Risk-Free: {rf_rate:.2%}<extra></extra>"
     ))
 
-    # 6. Optimal portfolio
     fig_cal.add_trace(go.Scatter(
-        x=[opt_vol*100], y=[opt_ret*100],
-        mode="markers+text",
+        x=[opt_vol*100], y=[opt_ret*100], mode="markers+text",
         marker=dict(color=C["red"], size=18, symbol="star",
                     line=dict(color="white", width=1.5)),
         text=["Optimal"], textposition="top right",
         textfont=dict(color=C["red"], size=12),
-        name=f"Optimal Portfolio (Sharpe={opt_sh:.2f})",
+        name=f"Optimal (Sharpe={opt_sh:.2f})",
         hovertemplate=(f"<b>Optimal Portfolio</b><br>"
                        f"Return: {opt_ret:.2%}<br>Vol: {opt_vol:.2%}<br>"
                        f"Sharpe: {opt_sh:.4f}<extra></extra>")
     ))
 
-    # Set axis ranges with sensible bounds
-    x_max = max(float(np.percentile(sim_v, 99)), opt_vol) * 100 * 1.08
-    y_min = rf_rate * 100 * 0.7
-    y_max = max(float(np.percentile(sim_r, 99)), opt_ret) * 100 * 1.08
+    x_max = max(float(np.percentile(sim_v,99)), opt_vol)*100*1.08
+    y_min = rf_rate*100*0.7
+    y_max = max(float(np.percentile(sim_r,99)), opt_ret)*100*1.08
 
     apply_white_theme(fig_cal, height=550, margin=dict(t=20,b=20,l=10,r=70))
     style_axes(fig_cal,
-               xkw=dict(title="Annual Volatility (%)", ticksuffix="%",
-                        range=[0, x_max]),
-               ykw=dict(title="Expected Annual Return (%)", ticksuffix="%",
-                        range=[y_min, y_max]))
+               xkw=dict(title="Annual Volatility (%)", ticksuffix="%", range=[0, x_max]),
+               ykw=dict(title="Expected Annual Return (%)", ticksuffix="%", range=[y_min, y_max]))
     fig_cal.update_layout(hovermode="closest")
     st.plotly_chart(fig_cal, use_container_width=True)
 
@@ -658,17 +688,15 @@ with tab2:
         a, b = st.columns(2)
         with a:
             st.markdown("""
-            - 🔵 **Blue dots** = 5,000 random portfolios. Darker = higher Sharpe ratio.
-            - 🟡 **Yellow curve** = Efficient Frontier — **upper portion only** (starts at GMVP going upward).
-              The lower half of the parabola (inefficient) is excluded.
-            - 🔷 **Yellow diamond** = GMVP — the portfolio with the lowest possible risk.
+            - 🔵 **Blue dots** = 5,000 random portfolios. Darker = higher Sharpe.
+            - 🟡 **Yellow curve** = Efficient Frontier — upper portion only (GMVP upward).
+            - 🔷 **Yellow diamond** = GMVP — lowest-risk portfolio.
             """)
         with b:
             st.markdown("""
-            - 🔵 **Blue dashed line** = CAL — the line from Rf through the optimal portfolio.
-              Every point on this line has the **same Sharpe ratio** (weight w cancels out).
-            - ⭐ **Red star** = Optimal (Tangency) Portfolio — maximum Sharpe ratio.
-            - 🔵 **Blue circle** = Risk-Free Rate at zero volatility (starting point of CAL).
+            - 🔵 **Blue dashed line** = CAL — Rf through optimal portfolio. Same Sharpe everywhere.
+            - ⭐ **Red star** = Optimal (Tangency) Portfolio — maximum Sharpe.
+            - 🔵 **Blue dot** = Risk-Free Rate at zero volatility.
             """)
 
     s1,s2,s3,s4 = st.columns(4)
@@ -690,8 +718,8 @@ with tab3:
 
     fig_sml = go.Figure()
     fig_sml.add_trace(go.Scatter(
-        x=beta_range, y=sml_returns*100,
-        mode="lines", line=dict(color=C["blue"], width=2.5),
+        x=beta_range, y=sml_returns*100, mode="lines",
+        line=dict(color=C["blue"], width=2.5),
         name="Security Market Line",
         hovertemplate="Beta: %{x:.2f}<br>CAPM Return: %{y:.2f}%<extra>SML</extra>"
     ))
@@ -703,8 +731,7 @@ with tab3:
         under  = actual > capm_r
         lbl    = short(ticker)
         fig_sml.add_trace(go.Scatter(
-            x=[b], y=[actual*100],
-            mode="markers+text",
+            x=[b], y=[actual*100], mode="markers+text",
             marker=dict(color=C["green"] if under else C["red"],
                         size=12, symbol="circle",
                         line=dict(color="white", width=1.5)),
@@ -718,8 +745,7 @@ with tab3:
         ))
 
     fig_sml.add_trace(go.Scatter(
-        x=[port_beta], y=[capm_ret*100],
-        mode="markers+text",
+        x=[port_beta], y=[capm_ret*100], mode="markers+text",
         marker=dict(color=C["red"], size=17, symbol="star",
                     line=dict(color="white", width=1.5)),
         text=["Optimal"], textposition="top right",
@@ -728,18 +754,16 @@ with tab3:
         hovertemplate=f"Beta: {port_beta:.4f}<br>CAPM: {capm_ret:.2%}<extra>Optimal</extra>"
     ))
     fig_sml.add_trace(go.Scatter(
-        x=[1.0], y=[mkt_annual*100],
-        mode="markers+text",
+        x=[1.0], y=[mkt_annual*100], mode="markers+text",
         marker=dict(color=C["purple"], size=13, symbol="square",
                     line=dict(color="white", width=1.5)),
         text=["Market"], textposition="top right",
         textfont=dict(color=C["purple"], size=12),
-        name="Market (Nifty 50)",
+        name=f"Market ({market_choice})",
         hovertemplate=f"Market Return: {mkt_annual:.2%}<extra>Market</extra>"
     ))
     fig_sml.add_trace(go.Scatter(
-        x=[0], y=[rf_rate*100],
-        mode="markers+text",
+        x=[0], y=[rf_rate*100], mode="markers+text",
         marker=dict(color=C["blue"], size=10, symbol="circle",
                     line=dict(color="white", width=2)),
         text=["Rf"], textposition="top right",
@@ -760,14 +784,14 @@ with tab3:
         with a:
             st.markdown("""
             - **Blue line** = SML — CAPM required return for each beta level
-            - 🟢 **Green dots** = Undervalued (actual > CAPM → positive alpha → above SML)
-            - 🔴 **Red dots** = Overvalued (actual < CAPM → negative alpha → below SML)
+            - 🟢 **Green dots** = Undervalued (actual > CAPM → positive alpha)
+            - 🔴 **Red dots** = Overvalued (actual < CAPM → negative alpha)
             """)
         with b:
             st.markdown("""
             - 🟣 **Purple square** = Market portfolio (beta = 1 by definition)
             - ⭐ **Red star** = Optimal portfolio on SML
-            - Hover over any dot for full details including alpha
+            - Hover over any dot for full alpha details
             """)
 
 
@@ -780,54 +804,35 @@ with tab4:
     slbls = [short(t) for t in available]
     cvals = corr_mat.values
 
-    # Build heatmap figure manually — NO dict-spreading to avoid ValueError
     fig_heat = go.Figure(go.Heatmap(
         z=cvals, x=slbls, y=slbls,
         colorscale=[
-            [0.00, "#1e40af"],
-            [0.35, "#93c5fd"],
-            [0.50, "#f8fafc"],
-            [0.65, "#fca5a5"],
-            [1.00, "#dc2626"]
+            [0.00,"#1e40af"],[0.35,"#93c5fd"],
+            [0.50,"#f8fafc"],[0.65,"#fca5a5"],[1.00,"#dc2626"]
         ],
         zmin=-1, zmax=1,
-        text=np.round(cvals, 2),
-        texttemplate="%{text}",
+        text=np.round(cvals,2), texttemplate="%{text}",
         textfont=dict(size=11, color=C["head"]),
         hoverongaps=False,
         hovertemplate="<b>%{y} vs %{x}</b><br>Correlation: %{z:.4f}<extra></extra>",
         colorbar=dict(
             title=dict(text="Correlation", font=dict(color=C["body"], size=12)),
             tickfont=dict(color=C["body"], size=11),
-            tickvals=[-1, -0.5, 0, 0.5, 1],
-            ticktext=["-1.0", "-0.5", "0.0", "+0.5", "+1.0"],
-            thickness=14, len=0.8,
-            bgcolor=C["bg"], bordercolor=C["border"]
+            tickvals=[-1,-0.5,0,0.5,1],
+            ticktext=["-1.0","-0.5","0.0","+0.5","+1.0"],
+            thickness=14, len=0.8, bgcolor=C["bg"], bordercolor=C["border"]
         )
     ))
-
-    # Apply theme manually — NO spreading
     fig_heat.update_layout(
-        paper_bgcolor=C["bg"],
-        plot_bgcolor=C["bg"],
-        height=530,
-        margin=dict(t=20, b=80, l=80, r=20),
+        paper_bgcolor=C["bg"], plot_bgcolor=C["bg"],
+        height=530, margin=dict(t=20,b=80,l=80,r=20),
         font=dict(color=C["body"], family="Inter, sans-serif"),
         hovermode="closest"
     )
-    fig_heat.update_xaxes(
-        tickangle=-40,
-        tickfont=dict(size=12, color=C["body"]),
-        side="bottom",
-        showgrid=False,
-        linecolor=C["border"]
-    )
-    fig_heat.update_yaxes(
-        tickfont=dict(size=12, color=C["body"]),
-        autorange="reversed",
-        showgrid=False,
-        linecolor=C["border"]
-    )
+    fig_heat.update_xaxes(tickangle=-40, tickfont=dict(size=12,color=C["body"]),
+                          side="bottom", showgrid=False, linecolor=C["border"])
+    fig_heat.update_yaxes(tickfont=dict(size=12,color=C["body"]),
+                          autorange="reversed", showgrid=False, linecolor=C["border"])
     st.plotly_chart(fig_heat, use_container_width=True)
 
     flat = cvals[np.triu_indices_from(cvals, k=1)]
@@ -839,10 +844,9 @@ with tab4:
 
     with st.expander("📖 How to read this chart"):
         st.markdown("""
-        - 🔴 **Red cells** → high positive correlation → stocks move together → **less diversification**
-        - 🔵 **Blue cells** → low/negative correlation → stocks move independently → **more diversification**
-        - **Diagonal** is always 1.0 — a stock is perfectly correlated with itself
-        - Portfolio risk is lower when pairs have low/negative correlation
+        - 🔴 **Red** = high positive correlation → stocks move together → less diversification
+        - 🔵 **Blue** = low/negative correlation → stocks move independently → more diversification
+        - **Diagonal** is always 1.0 (stock with itself)
         """)
 
 
@@ -867,15 +871,12 @@ with tab5:
     un_df = vdf[vdf["Under"]]
     ov_df = vdf[~vdf["Under"]]
 
-    hc1, hc2 = st.columns(2, gap="large")
-
     def val_card(row, is_under):
         color    = C["green"] if is_under else C["red"]
-        bg_hdr   = "#f0fdf4" if is_under else "#fef2f2"
-        brd_hdr  = "#bbf7d0" if is_under else "#fecaca"
+        brd      = "#bbf7d0" if is_under else "#fecaca"
         bg_badge = "#dcfce7" if is_under else "#fee2e2"
         return f"""
-        <div style='background:#ffffff; border:1px solid {brd_hdr};
+        <div style='background:#ffffff; border:1px solid {brd};
                     border-radius:10px; padding:13px 16px; margin-bottom:8px;
                     box-shadow:0 1px 3px rgba(0,0,0,.05);'>
             <div style='display:flex; justify-content:space-between;
@@ -887,24 +888,18 @@ with tab5:
                     α = {row["Alpha"]:+.2%}</span>
             </div>
             <div style='display:grid; grid-template-columns:repeat(4,1fr); gap:6px;'>
-                <div>
-                    <div style='color:#64748b; font-size:10px;'>Beta</div>
-                    <div style='color:#0f172a; font-weight:700; font-size:13px;'>{row["Beta"]:.4f}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:10px;'>Actual</div>
-                    <div style='color:{color}; font-weight:700; font-size:13px;'>{row["Actual"]:.2%}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:10px;'>CAPM Req.</div>
-                    <div style='color:{C["amber"]}; font-weight:700; font-size:13px;'>{row["CAPM"]:.2%}</div>
-                </div>
-                <div>
-                    <div style='color:#64748b; font-size:10px;'>Port. Wt</div>
-                    <div style='color:{C["blue"]}; font-weight:700; font-size:13px;'>{row["Weight"]:.2%}</div>
-                </div>
+                <div><div style='color:#64748b;font-size:10px;'>Beta</div>
+                     <div style='color:#0f172a;font-weight:700;font-size:13px;'>{row["Beta"]:.4f}</div></div>
+                <div><div style='color:#64748b;font-size:10px;'>Actual</div>
+                     <div style='color:{color};font-weight:700;font-size:13px;'>{row["Actual"]:.2%}</div></div>
+                <div><div style='color:#64748b;font-size:10px;'>CAPM Req.</div>
+                     <div style='color:{C["amber"]};font-weight:700;font-size:13px;'>{row["CAPM"]:.2%}</div></div>
+                <div><div style='color:#64748b;font-size:10px;'>Port. Wt</div>
+                     <div style='color:{C["blue"]};font-weight:700;font-size:13px;'>{row["Weight"]:.2%}</div></div>
             </div>
         </div>"""
+
+    hc1, hc2 = st.columns(2, gap="large")
 
     with hc1:
         st.markdown(f"""
@@ -930,19 +925,14 @@ with tab5:
         for _, row in ov_df.iterrows():
             st.markdown(val_card(row, False), unsafe_allow_html=True)
 
-    # Alpha bar chart
     st.markdown("<p style='font-size:14px; font-weight:700; color:#0f172a; margin:16px 0 6px;'>📊 Jensen's Alpha — All Stocks</p>", unsafe_allow_html=True)
     vs = vdf.sort_values("Alpha")
     fig_a = go.Figure(go.Bar(
         x=vs["Label"], y=vs["Alpha"]*100,
-        marker=dict(
-            color=[C["green"] if a > 0 else C["red"] for a in vs["Alpha"]],
-            opacity=0.85,
-            line=dict(color="rgba(255,255,255,0.6)", width=1)
-        ),
+        marker=dict(color=[C["green"] if a>0 else C["red"] for a in vs["Alpha"]],
+                    opacity=0.85, line=dict(color="rgba(255,255,255,0.6)", width=1)),
         text=[f"{a:+.2f}%" for a in vs["Alpha"]*100],
-        textposition="outside",
-        textfont=dict(color=C["head"], size=11),
+        textposition="outside", textfont=dict(color=C["head"], size=11),
         hovertemplate="<b>%{x}</b><br>Alpha: %{y:.2f}%<extra></extra>"
     ))
     fig_a.add_hline(y=0, line_color=C["muted"], line_width=1.5, line_dash="dot")
@@ -970,13 +960,11 @@ with tab6:
         subplot_titles=["Expected Return vs Risky Weight",
                         "Volatility vs Risky Weight"]
     )
-
     fig_lines.add_trace(go.Scatter(
         x=w_arr*100, y=r_arr*100, mode="lines",
         line=dict(color=C["green"], width=2.5), name="Return",
         hovertemplate="Risky Wt: %{x:.0f}%<br>Return: %{y:.2f}%<extra></extra>"
     ), 1, 1)
-
     fig_lines.add_trace(go.Scatter(
         x=w_arr*100, y=v_arr*100, mode="lines",
         line=dict(color=C["amber"], width=2.5), name="Volatility",
@@ -984,39 +972,29 @@ with tab6:
     ), 1, 2)
 
     fig_lines.update_layout(
-        paper_bgcolor=C["bg"],
-        plot_bgcolor=C["bg"],
-        height=270,
-        margin=dict(t=40, b=20, l=10, r=10),
-        showlegend=False,
-        font=dict(color=C["body"], family="Inter, sans-serif")
+        paper_bgcolor=C["bg"], plot_bgcolor=C["bg"],
+        height=270, margin=dict(t=40,b=20,l=10,r=10),
+        showlegend=False, font=dict(color=C["body"], family="Inter, sans-serif")
     )
-    fig_lines.update_xaxes(
-        gridcolor=C["border"], zeroline=False,
-        ticksuffix="%",
-        tickfont=dict(size=10, color=C["muted"]),
-        title_text="Risky Weight (%)",
-        title_font=dict(color=C["body"], size=11)
-    )
-    fig_lines.update_yaxes(
-        gridcolor=C["border"], zeroline=False,
-        tickfont=dict(size=10, color=C["muted"])
-    )
+    fig_lines.update_xaxes(gridcolor=C["border"], zeroline=False, ticksuffix="%",
+                           tickfont=dict(size=10, color=C["muted"]),
+                           title_text="Risky Weight (%)",
+                           title_font=dict(color=C["body"], size=11))
+    fig_lines.update_yaxes(gridcolor=C["border"], zeroline=False,
+                           tickfont=dict(size=10, color=C["muted"]))
     for ann in fig_lines.layout.annotations:
-        ann.font.color = C["head"]
-        ann.font.size  = 12
+        ann.font.color = C["head"]; ann.font.size = 12
 
     st.plotly_chart(fig_lines, use_container_width=True)
 
-    # Table
     cal_rows = []
     for i in range(101):
-        wrf = i/100; wr = 1-wrf
-        cr  = wrf*rf_rate + wr*opt_ret
-        cv  = wr*opt_vol
-        cb  = wr*port_beta
-        cc  = rf_rate + cb*(mkt_annual - rf_rate)
-        cs  = (cr - rf_rate)/cv if cv > 0 else 0.0
+        wrf=i/100; wr=1-wrf
+        cr = wrf*rf_rate + wr*opt_ret
+        cv = wr*opt_vol
+        cb = wr*port_beta
+        cc = rf_rate + cb*(mkt_annual - rf_rate)
+        cs = (cr-rf_rate)/cv if cv > 0 else 0.0
         cal_rows.append({
             "Risk-Free Wt":     f"{wrf:.0%}",
             "Risky Wt":         f"{wr:.0%}",
@@ -1038,7 +1016,7 @@ st.markdown(f"""
 <div style='text-align:center; color:{C["muted"]}; font-size:12px; padding:8px 0;'>
     📊 Portfolio Optimizer &nbsp;·&nbsp; Data: Yahoo Finance &nbsp;·&nbsp;
     {start_date} → {end_date} &nbsp;·&nbsp; Rf: {rf_rate:.1%} &nbsp;·&nbsp;
-    {len(available)} assets via SLSQP
+    Market: {market_choice} &nbsp;·&nbsp; {len(available)} assets via SLSQP
     <br><span style='color:#94a3b8; font-size:11px; margin-top:4px; display:block;'>
         ⚠️ Educational purposes only. Past performance does not guarantee future results.
     </span>
