@@ -108,6 +108,7 @@ PALETTE = ["#2563eb","#16a34a","#d97706","#dc2626",
 # ─────────────────────────────────────────────
 MARKET_MAP = {
     "Nifty 50"          : "^NSEI",
+    "Nifty 500"         : "^CRSLDX",
     "Nifty Bank"        : "^NSEBANK",
     "Nifty IT"          : "^CNXIT",
     "Nifty Midcap 100"  : "^NSEMDCP100",
