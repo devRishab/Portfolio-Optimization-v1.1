@@ -109,8 +109,11 @@ PALETTE = ["#2563eb","#16a34a","#d97706","#dc2626",
 MARKET_MAP = {
     "Nifty 50"          : "^NSEI",
     "Nifty 500"         : "^CRSLDX",
+    "Nifty 100"         : "^CNX100",
     "Nifty Bank"        : "^NSEBANK",
     "Nifty IT"          : "^CNXIT",
+    "Nifty Next 50"     : "^NSMIDCP",
+    "Nifty Pharma"      : "^CNXPHARMA",
     "Nifty Midcap 100"  : "^NSEMDCP100",
     "BSE Sensex"        : "^BSESN",
     "S&P 500 (US)"      : "^GSPC",
@@ -410,16 +413,7 @@ if len(tickers) < 2:
     st.error("❌ Need at least 2 valid tickers. Please check your inputs.")
     st.stop()
 
-# Show which tickers were resolved
-with st.expander(f"✅ {len(tickers)} tickers resolved — click to see mapping", expanded=False):
-    res_df = pd.DataFrame([
-        {"You entered": raw, "Resolved to": resolved_map[raw],
-         "Exchange": "NSE" if resolved_map[raw].endswith(".NS")
-                    else "BSE" if resolved_map[raw].endswith(".BO")
-                    else "US / Other"}
-        for raw in resolved_map
-    ])
-    st.dataframe(res_df, use_container_width=True, hide_index=True)
+
 
 
 # ─────────────────────────────────────────────
