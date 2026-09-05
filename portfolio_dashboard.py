@@ -117,6 +117,26 @@ st.markdown("""
         text-transform: uppercase;
         margin-bottom: 8px;
     }
+
+    /* ── Safety net for native Streamlit text on the forced dark
+       background. The .streamlit/config.toml dark theme should make
+       most of this redundant, but keep it in case the app runs without
+       that config file (e.g. deployed without the .streamlit folder). */
+    .stCaption, [data-testid="stCaptionContainer"] { color: #8892a4 !important; }
+    [data-testid="stWidgetLabel"] label,
+    [data-testid="stWidgetLabel"] p { color: #cbd5e0 !important; }
+    .stTextInput input, .stTextArea textarea,
+    .stDateInput input, .stNumberInput input {
+        color: #e2e8f0 !important;
+        background-color: #1a1f2e !important;
+    }
+    .stSlider label, .stSlider [data-testid="stTickBarMin"],
+    .stSlider [data-testid="stTickBarMax"] { color: #cbd5e0 !important; }
+    .stAlert, .stAlert p, .stAlert div { color: #e2e8f0 !important; }
+    [data-testid="stExpander"] summary, [data-testid="stExpander"] p,
+    [data-testid="stExpander"] li { color: #cbd5e0 !important; }
+    .stMarkdown p, .stMarkdown li { color: #cbd5e0; }
+    [data-testid="stDataFrame"] * { color: #e2e8f0; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -508,7 +528,7 @@ with tab2:
         sim_vols    = np.array(sim_vols)
         sim_sharpes = np.array(sim_sharpes)
 
-        # Efficient frontier curve
+        # Minimum-variance frontier
         target_rets = np.linspace(mean_ret.min(), mean_ret.max(), 60)
         ef_vols, ef_rets = [], []
         for tr in target_rets:
@@ -516,6 +536,15 @@ with tab2:
             if v is not None:
                 ef_vols.append(v)
                 ef_rets.append(tr)
+
+        # Keep only the EFFICIENT (upper) branch: everything from the
+        # global minimum-variance point upward. Below that point, every
+        # portfolio is dominated by one with the same risk and higher
+        # return further up the curve, so it isn't part of the true
+        # efficient frontier even though it's on the min-variance curve.
+        if ef_vols:
+            min_idx = int(np.argmin(ef_vols))
+            ef_vols, ef_rets = ef_vols[min_idx:], ef_rets[min_idx:]
 
         # CAL line
         cal_x = np.linspace(0, max(sim_vols) * 1.05, 100)
