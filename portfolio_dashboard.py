@@ -201,7 +201,7 @@ def compute_stats(sd, md):
     ret, mkt = ret.align(mkt, join="inner", axis=0)
     return (ret, mkt,
             ret.mean()*252, ret.cov()*252, ret.corr(),
-            float(mkt.mean()*252), float(np.var(mkt)))
+            float(mkt.mean()*252), float(np.var(mkt, ddof=1)))
 
 
 def port_perf(w, mu, sig, rf):
@@ -255,7 +255,7 @@ def get_betas(returns, mkt_ret, mkt_var):
 
 
 def get_port_beta(port_daily, mkt_ret):
-    return float(np.cov(port_daily, mkt_ret)[0,1]/np.var(mkt_ret))
+    return float(np.cov(port_daily, mkt_ret)[0,1]/np.var(mkt_ret, ddof=1))
 
 
 # ─────────────────────────────────────────────
